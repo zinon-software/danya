@@ -1,28 +1,30 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h1>Products</h1>
-  <div class="container text-center">
+
+<div class="container text-center">
   <div class="row">
-  {% for product in products %}
-  <div class="col-sm-6">
-    <div class="card" style="width: 18rem;">
-    {% if product.image_url %}
-  <img src="{{ product.image_url }}"  alt="{{ product.name }}"  whidth="200px" hieght ="200px">
-      {% endif %}
-  <div class="card-body">
-    <h5 class="card-title">{{ product.name }}</h5>
-    <p class="card-text text-truncate">{{ product.description }}</p>
-    <a href="{% url 'product_detail' pk=product.pk %}" class="btn btn-primary">Price: {{ product.price }}</a>
-  </div>
-</div>
-
-
-   
+    {% for product in products %}
+    <div class="col-lg-3 col-sm-6 d-flex flex-column align-items-center justify-content-center product-item my-3">
+      <div class="card" style="width: 18rem;">
+        {% if product.image_url %}
+        <img src="{{ product.image_url }}" alt="{{ product.name }}" whidth="200px" hieght="200px">
+        {% endif %}
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="card-text text-truncate">{{ product.description }}</p>
+          <div class="col-sm ">
+            <p>Price: ${{ product.price }}</p>
+          </div>
+          <div class="col-md ">
+            <a href="{% url 'product_detail' pk=product.pk %}" class="btn btn-outline-success p" type="submit">Buy</a>
+          </div>
+        </div>
+      </div>
     </div>
-  {% endfor %}
-   
+    {% endfor %}
+
   </div>
 </div>
-  
+
 {% endblock %}
