@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Products</h1>
+    <div class= "container">
+        <div class="row ml-200px ">
+         <div class="col-sm">
+        <img src="{{ product.image_url }}" width=500px hieght=100vh>
+          </div>
+      <div class="col-sm ">
+            <h2>{{ product.name }}</h2>
+            <p>{{ product.description }}</p>
+             <div class="row-">
+             <div class="col-sm ">
+            <p>Price: ${{ product.price }}</p>
+            </div>
+            <div class="col-md ">
+        <button class="btn btn-outline-success p" type="submit">Buy</button>  
+        </div>
+</div>
+            </div>
+            </div>
+            </div>
+
+{% endblock %}
